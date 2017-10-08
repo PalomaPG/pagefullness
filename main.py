@@ -3,8 +3,9 @@
 from Calculator import Calculator
 
 def main():
-    calc = Calculator("/my/path/to/heaven/", "prefix", "suffix")
-    calc.sumRatios()
+    calc = Calculator("/my/path/to/heaven/", "b", ".node")
+    stats = calc.sumRatios()
+    print(stats)
 
 
 if __name__ == "__main__":
