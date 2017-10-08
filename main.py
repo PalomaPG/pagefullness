@@ -3,7 +3,7 @@
 from Calculator import Calculator
 
 def main():
-    calc = Calculator("/home/paloma/Documents/Algo/Tareas/testRepo/jRTree/output/", "b", ".node")
+    calc = Calculator("/my/path/to/heaven/", "prefix", "suffix")
     calc.sumRatios()
 
 
