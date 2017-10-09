@@ -9,14 +9,13 @@ import statistics as sts
 
 class Calculator:
 
-    def __init__(self, path, files_prefix, files_suffix):
-        self.file_ = files_prefix+"reg.txt"
-        self.files_prefix = files_prefix
+    def __init__(self, path, files_suffix, output_path):
         self.files_suffix = files_suffix
         self.path = path
+        self.output_path=output_path
 
 
-    def sumRatios(self):
+    def writeCalc(self):
         """
         lists files in path which end with a suffix  equals to files_suffix
         and begin with a prefix equals to files_prefix
@@ -29,10 +28,12 @@ class Calculator:
 
         for file in onlyfiles:
             statinfo = stat(self.path+file)
-            ratio=statinfo.st_size/pagesize
+            ratio=(statinfo.st_size/pagesize)
             reg.append(ratio*100)
 
-        return [len(reg), sts.mean(reg), sts.stdev(reg)]
+        with open(self.output_path, "a") as f:
+            f.write('%d,%f,%f\n' % (len(reg), sts.mean(reg), sts.stdev(reg)))
+
     #def calculate(self):
 
 
